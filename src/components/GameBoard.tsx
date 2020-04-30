@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import config from '../gameConfig';
+import config, { getPosition, numberToPixels } from '../gameConfig';
 
 export type NodeItem = {
   id: number;
   food: boolean;
+  xPos: number;
+  yPos: number;
 }
 
 export type BoardType = {
@@ -17,36 +19,53 @@ export type NodeType = {
   gap: number;
   nodeWidth: number;
   nodeHeight: number;
+  xPos: number;
+  yPos: number;
 }
 
 const Board = styled.article<BoardType>`
+  position: relative;
+
   width: ${p => p.boardWidth}px;
   height: ${p => p.boardHeight}px;
 
   margin: 0 auto;
-
-  background-color: red;
 `;
 
+// Example:
+//   const Component = styled.div.attrs(props => ({
+//     style: {
+//       background: props.background,
+//     },
+//   }))`width: 100%;`
+
 const Node = styled.div<NodeType>`
-  float: left;
+  position: absolute;
+  left: ${p => p.xPos}px;
+  top: ${p => p.yPos}px;
+
   width: ${p => p.nodeWidth}px;
   height: ${p => p.nodeHeight}px;
 
-  background-color: lightgray;
+  border: ${p => p.gap}px solid lightgray;
 `;
 
 
 const nodeItems: NodeItem[] = [];
 
-for(let i = 0; i < 1000/50 * 800/50; i++) {
-  nodeItems.push({
-    id: i,
-    food: false,
-  })
-}
+let count = 0;
+for (let x = 0; x < config.cols; x++) {
+  for (let y = 0; y < config.rows; y++) {
+    nodeItems.push({
+      id: count,
+      food: false,
+      xPos: getPosition(config.colSize, config.gap, x),
+      yPos: getPosition(config.rowSize, config.gap, y),
+    });
 
-console.log(nodeItems)
+    count++;
+  }
+}
 
 const GameBoard = () => {
   return (
@@ -54,9 +73,7 @@ const GameBoard = () => {
       {nodeItems.map(item => (
         <Node
           key={item.id}
-          nodeWidth={config.colSize}
-          nodeHeight={config.rowSize}
-          gap={config.gap}
+          {...numberToPixels(item)}
         />
       ))}
     </Board>
