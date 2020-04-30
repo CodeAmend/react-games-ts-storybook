@@ -1,5 +1,5 @@
 export const getSingleBoardDimension = (sections: number, sectionSize: number, gap: number): number => {
-  return sections * sectionSize * gap - gap;
+  return sections * (sectionSize + gap) - gap;
 }
 
 export const getPosition = (sectionSize: number, gap: number, position: number) => {
@@ -7,23 +7,14 @@ export const getPosition = (sectionSize: number, gap: number, position: number) 
   return result;
 }
 
-type ConfigType = { [key: string]: number }
-type PixelConfigType = { [key: string]: string }
-
-export const numberToPixels = (config: ConfigType) => 
-  Object.keys(config).reduce((acc, item) => {
-    acc[item] = config[item] + 'px';
-    return acc;
-  }, {} as PixelConfigType);
-
-
-const rows: number = 20;
-const cols: number = 20;
-
-const rowSize: number = 10;
-const colSize: number = 10;
+const rows: number = 10;
+const cols: number = 10;
 
 const gap: number = 1;
+
+const rowSize: number = 50;
+const colSize: number = 50;
+
 
 const boardHeight = getSingleBoardDimension(rows, rowSize, gap);
 const boardWidth = getSingleBoardDimension(cols, colSize, gap)
@@ -31,8 +22,8 @@ const boardWidth = getSingleBoardDimension(cols, colSize, gap)
 export default {
   rows,
   cols,
-  rowSize: rowSize - gap,
-  colSize: colSize - gap,
+  rowSize,
+  colSize,
   gap,
   boardWidth,
   boardHeight,

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import config, { getPosition, numberToPixels } from '../gameConfig';
+import config, { getPosition } from '../gameConfig';
 
 export type NodeItem = {
   id: number;
@@ -30,24 +30,22 @@ const Board = styled.article<BoardType>`
   height: ${p => p.boardHeight}px;
 
   margin: 0 auto;
+  background: red;
 `;
 
-// Example:
-//   const Component = styled.div.attrs(props => ({
-//     style: {
-//       background: props.background,
-//     },
-//   }))`width: 100%;`
 
-const Node = styled.div<NodeType>`
+// TODO: Find the proper way to not use ANY here
+const Node = styled.div.attrs((props: any) => ({
+  style: {
+    left: props.xPos + 'px',
+    top: props.yPos + 'px',
+    width: props.nodeWidth + 'px',
+    height: props.nodeHeight + 'px',
+    border: `${props.gap}px solid black`
+  }
+
+}))<NodeType>`
   position: absolute;
-  left: ${p => p.xPos}px;
-  top: ${p => p.yPos}px;
-
-  width: ${p => p.nodeWidth}px;
-  height: ${p => p.nodeHeight}px;
-
-  border: ${p => p.gap}px solid lightgray;
 `;
 
 
@@ -73,7 +71,11 @@ const GameBoard = () => {
       {nodeItems.map(item => (
         <Node
           key={item.id}
-          {...numberToPixels(item)}
+          xPos={item.xPos}
+          yPos={item.yPos}
+          nodeWidth={config.colSize}
+          nodeHeight={config.rowSize}
+          gap={config.gap}
         />
       ))}
     </Board>

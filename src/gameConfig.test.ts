@@ -1,8 +1,4 @@
-import config, {
-  getSingleBoardDimension,
-  getPosition,
-  numberToPixels,
-} from './gameConfig';
+import config, { getSingleBoardDimension, getPosition } from './gameConfig';
 
 
 test('Game Config has all needed options', () => {
@@ -17,30 +13,18 @@ test('Game Config has all needed options', () => {
 
 
 test('single board dimension function', () => {
-  const sections = 5;
-  const sectionSize = 50;
-  const gap = 1;
+  let sections = 5;
+  let sectionSize = 50;
+  let gap = 1;
 
-  const result = getSingleBoardDimension(sections, sectionSize, gap);
-  
-  // section x sectionSize x gap
-  // 5 x 50 x 1 - 1 = 249
+  const result1 = getSingleBoardDimension(sections, sectionSize, gap);
+  expect(result1).toBe(249);
 
-  expect(result).toBe(249);
-});
-
-test('number to pixel function', () => {
-  const testResult = numberToPixels({
-    col: 5,
-    row: 4,
-    sectionSize: 50,
-  })
-
-  expect(testResult).toStrictEqual({
-    col: '5px',
-    row: '4px',
-    sectionSize: '50px',
-  })
+  sections = 20;
+  sectionSize = 15;
+  gap = 3;
+  const result2 = getSingleBoardDimension(sections, sectionSize, gap);
+  expect(result2).toBe(340);
 });
 
 test('get x position', () => {
