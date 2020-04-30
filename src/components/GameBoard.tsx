@@ -1,27 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import config, { getPosition } from '../gameConfig';
+import { NodeItem, BoardType, NodeType } from './interfaces';
 
-export type NodeItem = {
-  id: number;
-  food: boolean;
-  xPos: number;
-  yPos: number;
-}
+import config from '../gameConfig';
+import { createNewBoard } from './util';
 
-export type BoardType = {
-  boardWidth: number;
-  boardHeight: number;
-}
-
-export type NodeType = {
-  gap: number;
-  nodeWidth: number;
-  nodeHeight: number;
-  xPos: number;
-  yPos: number;
-}
 
 const Board = styled.article<BoardType>`
   position: relative;
@@ -49,26 +33,17 @@ const Node = styled.div.attrs((props: any) => ({
 `;
 
 
-const nodeItems: NodeItem[] = [];
-
-let count = 0;
-for (let x = 0; x < config.cols; x++) {
-  for (let y = 0; y < config.rows; y++) {
-    nodeItems.push({
-      id: count,
-      food: false,
-      xPos: getPosition(config.colSize, config.gap, x),
-      yPos: getPosition(config.rowSize, config.gap, y),
-    });
-
-    count++;
-  }
-}
 
 const GameBoard = () => {
+  const [boardItems, setBoardItems] = React.useState([] as NodeItem[]);
+
+  React.useEffect(() => {
+    setBoardItems(createNewBoard());
+  }, []);
+
   return (
     <Board {...config}>
-      {nodeItems.map(item => (
+      {boardItems.map(item => (
         <Node
           key={item.id}
           xPos={item.xPos}

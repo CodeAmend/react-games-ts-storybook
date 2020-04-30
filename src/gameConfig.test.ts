@@ -18,13 +18,13 @@ test('single board dimension function', () => {
   let gap = 1;
 
   const result1 = getSingleBoardDimension(sections, sectionSize, gap);
-  expect(result1).toBe(249);
+  expect(result1).toBe(254);
 
   sections = 20;
   sectionSize = 15;
   gap = 3;
   const result2 = getSingleBoardDimension(sections, sectionSize, gap);
-  expect(result2).toBe(340);
+  expect(result2).toBe(357);
 });
 
 test('get x position', () => {
