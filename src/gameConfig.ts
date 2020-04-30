@@ -1,11 +1,13 @@
-export const getSingleBoardDimension = (sections: number, sectionSize: number, gap: number): number => {
-  return sections * (sectionSize + gap) - gap;
-}
+export const getSingleBoardDimension =
+  (sections: number, sectionSize: number, gap: number): number => {
+    return sections * (sectionSize + gap) - gap;
+  }
 
-export const getPosition = (sectionSize: number, gap: number, position: number) => {
-  const result = position * (sectionSize + gap) - gap;
-  return result;
-}
+export const getPosition =
+  (sectionSize: number, gap: number, position: number) => {
+    const result = position * (sectionSize + gap) - gap;
+    return result;
+  }
 
 const rows: number = 10;
 const cols: number = 10;
