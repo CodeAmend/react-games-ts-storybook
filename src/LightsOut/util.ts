@@ -1,19 +1,19 @@
-import { NodeItem } from './interfaces';
-import config, { getPosition } from '../gameConfig';
+import config from '../gameConfig';
+import { GridSquareProps } from './interfaces';
 
 
-export const createNewBoard = (): NodeItem[] => {
-  const nodeItems: NodeItem[] = [];
+export const createNewBoard = (): GridSquareProps[] => {
+  const nodeItems: GridSquareProps[] = [];
 
   let count = 0;
   for (let x = 0; x < config.cols; x++) {
     for (let y = 0; y < config.rows; y++) {
       nodeItems.push({
-        id: count,
-        food: false,
-        xPos: getPosition(config.colSize, config.gap, x),
-        yPos: getPosition(config.rowSize, config.gap, y),
+        index: count,
         active: false,
+        gap: config.gap + 'px',
+        width: config.colSize + 'px',
+        height: config.rowSize + 'px',
       });
 
       count++;

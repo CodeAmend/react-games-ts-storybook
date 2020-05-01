@@ -1,24 +1,7 @@
-import React, { FC, MouseEvent } from 'react';
-import styled from 'styled-components';
+import React from 'react';
 
-
-interface GridSquareProps {
-  width: string;
-  height: string;
-  gap: string;
-  active?: boolean;
-}
-
-const Square = styled.div.attrs((props: GridSquareProps) => ({
-  style: {
-    width: props.width,
-    height: props.height,
-    border: `${props.gap} solid black`,
-    backgroundColor: props.active ? 'yellow' : '#444',
-  }
-}))<GridSquareProps>`
-  cursor: pointer;
-`;
+import { GridSquareProps } from './interfaces';
+import { Square } from './styles';
 
 
 const GridSquare = (props: GridSquareProps) => {
@@ -26,6 +9,7 @@ const GridSquare = (props: GridSquareProps) => {
 
   const handleToggle = () => {
     setActive(old => !old);
+    console.log(props.index, active)
   }
 
   return (

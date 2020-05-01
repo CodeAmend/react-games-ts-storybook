@@ -1,21 +1,21 @@
-export type NodeItem = {
-  id: number;
-  food: boolean;
-  xPos: number;
-  yPos: number;
-  active: boolean;
+export interface GridSquareProps {
+  index: number;
+  width: string;
+  height: string;
+  gap: string;
+  active?: boolean;
 }
 
-export type BoardType = {
-  boardWidth: number;
-  boardHeight: number;
+export type GridBoardOptionProps = {
+  width: string;
+  height: string;
+  rows: number;
+  cols: number;
 }
 
-export type NodeType = {
-  gap: number;
-  nodeWidth: number;
-  nodeHeight: number;
-  xPos: number;
-  yPos: number;
-  active: boolean;
+export type GridBoardProps = {
+  gridItems: GridSquareProps[];
+  rows: number;
+  cols: number;
 }
+

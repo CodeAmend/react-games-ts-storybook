@@ -1,12 +1,6 @@
 export const getSingleBoardDimension =
   (sections: number, sectionSize: number, gap: number): number => {
-    return sections * (sectionSize + gap) - gap;
-  }
-
-export const getPosition =
-  (sectionSize: number, gap: number, position: number) => {
-    const result = position * (sectionSize + gap) - gap;
-    return result;
+    return sections * (sectionSize + gap);
   }
 
 const rows: number = 10;

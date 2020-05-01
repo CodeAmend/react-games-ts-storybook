@@ -1,34 +1,34 @@
 import styled from 'styled-components';
 
-import { BoardType, NodeType } from './interfaces';
+import { GridBoardOptionProps, GridSquareProps } from './interfaces';
 
 
-export const Board = styled.article<BoardType>`
-  position: relative;
+export const Board = styled.article<GridBoardOptionProps>`
+  width: ${p => p.width};
+  height: ${p => p.height};
+  background-color: lightgray;
 
-  width: ${p => p.boardWidth}px;
-  height: ${p => p.boardHeight}px;
-
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(${p => p.cols}, 1fr);
 `;
 
 
-export const Square = styled.div.attrs((props: any) => ({
-  style: {
-    left: props.xPos + 'px',
-    top: props.yPos + 'px',
-    width: props.nodeWidth + 'px',
-    height: props.nodeHeight + 'px',
-    border: `${props.gap}px solid black`,
-    backgroundColor: props.active ? 'yellow' : '#444',
-  }
+// TODO: Why does 'onClick' not show up for styled-component
+// How to implement this? Idea below...
+// interface SquareType extends React.HTMLAttributes<HTMLElement> {}
 
-}))<NodeType>`
+export const Square = styled.div.attrs((props: GridSquareProps) => ({
+  style: {
+    width: props.width,
+    height: props.height,
+    border: `${props.gap + 'px'} solid red`,
+  }
+}))<any>`
   cursor: pointer;
-  position: absolute;
-  background: red;
+
+  background-color: ${p => p.active ? 'yellow' : '#444'};
 
   &:hover {
-    background-color: black;
+    background-color: ${p => p.active ? '#f9d71c' : '#222'};
   }
 `;
