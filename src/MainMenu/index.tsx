@@ -9,6 +9,7 @@ function App() {
     <MainScreen>
       <Header>React Games</Header>
       <Menu>
+        
         <MenuItem title="Lights Out" />
         <MenuItem title="Snake" />
         <MenuItem title="Random Walker" />
