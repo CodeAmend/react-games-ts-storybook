@@ -10,26 +10,25 @@ export const Board = styled.article<BoardType>`
   height: ${p => p.boardHeight}px;
 
   margin: 0 auto;
-  background-color: orange;
 `;
 
 
-// TODO: Find the proper way to not use ANY here
-export const Node = styled.div.attrs((props: any) => ({
+export const Square = styled.div.attrs((props: any) => ({
   style: {
     left: props.xPos + 'px',
     top: props.yPos + 'px',
     width: props.nodeWidth + 'px',
     height: props.nodeHeight + 'px',
-    border: `${props.gap}px solid lightgray`
+    border: `${props.gap}px solid black`,
+    backgroundColor: props.active ? 'yellow' : '#444',
   }
 
 }))<NodeType>`
+  cursor: pointer;
   position: absolute;
+  background: red;
 
   &:hover {
     background-color: black;
   }
 `;
-
-

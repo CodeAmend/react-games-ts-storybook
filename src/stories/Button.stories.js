@@ -1,7 +1,6 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 
-import MenuButton, { ColorChoice } from '../MainMenu/MenuButton';
+import MenuButton from '../MainMenu/MenuButton';
 
 
 export default {

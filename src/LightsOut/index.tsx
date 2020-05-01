@@ -4,7 +4,7 @@ import { NodeItem } from './interfaces';
 import { createNewBoard } from './util';
 import config from '../gameConfig';
 
-import { Board, Node } from './styles';
+import { Board, Square } from './styles';
 
 
 const GameBoard = () => {
@@ -17,7 +17,7 @@ const GameBoard = () => {
   return (
     <Board {...config}>
       {boardItems.map(item => (
-        <Node
+        <Square
           key={item.id}
           xPos={item.xPos}
           yPos={item.yPos}
