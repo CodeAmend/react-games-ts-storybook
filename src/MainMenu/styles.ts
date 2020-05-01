@@ -2,13 +2,12 @@ import styled from 'styled-components';
 
 
 export const MainScreen = styled.main`
-  height: 100vh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  padding-top: 3rem;
+  padding: 2rem 0 2.25rem;;
+  margin-bottom: 2rem;
 
   background-color: #f5f5f5;
   color: #333;
@@ -21,7 +20,6 @@ export const Header = styled.h1`
 `;
 
 export const Menu = styled.ul`
-  width: 500px;
-
+  display: flex;
   margin-top: 3rem;
 `;

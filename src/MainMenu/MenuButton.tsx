@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 
 export enum ColorChoice {
@@ -11,21 +12,28 @@ export enum ColorChoice {
 }
 
 type MenuButtonProps = {
-  title: string;
+  children: string;
+  to: string;
 }
 
 const ListItem = styled.li`
   cursor: pointer;
   list-style: none;
   position: relative;
+  display:flex;
+
+  min-width: 250px;
 
   border: 4px solid black;
 
-  margin-bottom: 1rem;
   padding: 0.5rem 1rem;
 
   color: black;
   background-color: white;
+
+  & + & {
+    margin-left: 1rem;
+  }
 
   &:hover {
     color: white;
@@ -38,13 +46,14 @@ const ListItem = styled.li`
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
-
   }
 `;
 
-const MenuItem: FC<MenuButtonProps> = ({ title }) => {
+const MenuItem: FC<MenuButtonProps> = ({ children, to }) => {
   return (
-    <ListItem>{title}</ListItem>
+    <Link to={to}>
+      <ListItem>{children}</ListItem>
+    </Link>
   );
 }
 

@@ -9,10 +9,9 @@ function App() {
     <MainScreen>
       <Header>React Games</Header>
       <Menu>
-        
-        <MenuItem title="Lights Out" />
-        <MenuItem title="Snake" />
-        <MenuItem title="Random Walker" />
+        <MenuItem to="/lights-out">Lights Out</MenuItem>
+        <MenuItem to="/snake">Snake</MenuItem>
+        <MenuItem to="/random-walker">Random Walker</MenuItem>
       </Menu>
     </MainScreen>
   );
