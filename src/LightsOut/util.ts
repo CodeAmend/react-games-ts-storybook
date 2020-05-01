@@ -13,6 +13,7 @@ export const createNewBoard = (): NodeItem[] => {
         food: false,
         xPos: getPosition(config.colSize, config.gap, x),
         yPos: getPosition(config.rowSize, config.gap, y),
+        active: false,
       });
 
       count++;

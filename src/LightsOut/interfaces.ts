@@ -3,6 +3,7 @@ export type NodeItem = {
   food: boolean;
   xPos: number;
   yPos: number;
+  active: boolean;
 }
 
 export type BoardType = {
@@ -16,4 +17,5 @@ export type NodeType = {
   nodeHeight: number;
   xPos: number;
   yPos: number;
+  active: boolean;
 }
