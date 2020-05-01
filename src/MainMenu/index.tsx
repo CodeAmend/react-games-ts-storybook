@@ -1,14 +1,18 @@
 import React from 'react';
 
-import { MainScreen, Header } from './styles';
-import LightsOut from '../LightsOut';
+import { MainScreen, Header, Menu } from './styles';
+import MenuItem from '../MainMenu/MenuButton';
 
 
 function App() {
   return (
     <MainScreen>
       <Header>React Games</Header>
-      <LightsOut />
+      <Menu>
+        <MenuItem title="Lights Out" />
+        <MenuItem title="Snake" />
+        <MenuItem title="Random Walker" />
+      </Menu>
     </MainScreen>
   );
 }
