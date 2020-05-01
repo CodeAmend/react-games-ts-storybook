@@ -1,35 +1,32 @@
 import styled from 'styled-components';
 
-import { BoardType, NodeType } from './interfaces';
+import { GridBoardOptionProps } from './interfaces';
 
 
-export const Board = styled.article<BoardType>`
-  position: relative;
+export const Board = styled.article<GridBoardOptionProps>`
+  width: ${p => p.width};
+  height: ${p => p.height};
+  background-color: lightgray;
 
-  width: ${p => p.boardWidth}px;
-  height: ${p => p.boardHeight}px;
-
-  margin: 0 auto;
-  background-color: orange;
+  display: grid;
+  grid-template-columns: repeat(${p => p.cols}, 1fr);
 `;
 
 
-// TODO: Find the proper way to not use ANY here
-export const Node = styled.div.attrs((props: any) => ({
-  style: {
-    left: props.xPos + 'px',
-    top: props.yPos + 'px',
-    width: props.nodeWidth + 'px',
-    height: props.nodeHeight + 'px',
-    border: `${props.gap}px solid lightgray`
-  }
+// TODO: Why does 'onClick' not show up for styled-component
+// How to implement this? Idea below...
+// interface SquareType extends React.HTMLAttributes<HTMLElement> {}
 
-}))<NodeType>`
-  position: absolute;
+export const Square = styled.div<any>`
+  cursor: pointer;
+
+  width: ${p => p.width};
+  height: ${p => p.height};
+
+  border: ${p => p.gap} solid black;
+  background-color: ${p => p.active ? 'yellow' : '#444'};
 
   &:hover {
-    background-color: black;
+    background-color: ${p => p.active ? '#f9d71c' : '#222'};
   }
 `;
-
-

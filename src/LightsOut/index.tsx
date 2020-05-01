@@ -1,33 +1,22 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import { NodeItem } from './interfaces';
-import { createNewBoard } from './util';
-import config from '../gameConfig';
-
-import { Board, Node } from './styles';
+import GameBoard from './GridBoard'
 
 
-const GameBoard = () => {
-  const [boardItems, setBoardItems] = React.useState([] as NodeItem[]);
+const Wrapper = styled.main`
+  display: flex;
+  justify-content: center;
+`;
 
-  React.useEffect(() => {
-    setBoardItems(createNewBoard());
-  }, []);
+
+const LightsOut = () => {
 
   return (
-    <Board {...config}>
-      {boardItems.map(item => (
-        <Node
-          key={item.id}
-          xPos={item.xPos}
-          yPos={item.yPos}
-          nodeWidth={config.colSize}
-          nodeHeight={config.rowSize}
-          gap={config.gap}
-        />
-      ))}
-    </Board>
+    <Wrapper>
+      <GameBoard />
+    </Wrapper>
   )
 }
 
-export default GameBoard;
+export default LightsOut;

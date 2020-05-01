@@ -1,3 +1,3 @@
-# Lights Out
+# React Games
 
-Just testing out typescript with a simple game app
+Just testing out typescript with simple game apps
