@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { action } from '@storybook/addon-actions';
 
-import { Square } from '../LightsOut/styles';
+import GridSquare from '../LightsOut/GridSquare';
 
 
 export default {
   title: 'Board Grid Item',
-  component: Square,
+  component: GridSquare,
 };
 
 const Wrapper = styled.div`
@@ -16,28 +16,21 @@ const Wrapper = styled.div`
 
 export const GridItemActive = () => (
   <Wrapper>
-    <Square
-      onClick={action('clicked')}
-      xPos="0"
-      yPos="0"
-      nodeWidth="50"
-      nodeHeight="50"
-      gap="1"
+    <GridSquare
+      width="50px"
+      height="50px"
+      gap="1px"
       active={true}
     />
   </Wrapper>
 );
 
-export const GridItemNonActive = () => (
+export const GridItemNotActive = () => (
   <Wrapper>
-    <Square
-      onClick={action('clicked')}
-      xPos="0"
-      yPos="0"
-      nodeWidth="50"
-      nodeHeight="50"
-      gap="1"
-      active={false}
+    <GridSquare
+      width="50px"
+      height="50px"
+      gap="1px"
     />
   </Wrapper>
 );
