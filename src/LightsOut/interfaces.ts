@@ -4,6 +4,7 @@ export interface GridSquareProps {
   height: string;
   gap: string;
   active?: boolean;
+  handeEvent?: (index: number, e: Event) => void; 
 }
 
 export type GridBoardOptionProps = {
@@ -19,5 +20,6 @@ export type GridBoardProps = {
   cols: number;
   width: string;
   height: string;
+  handeEvent?: (index: number, e: Event) => void; 
 }
 

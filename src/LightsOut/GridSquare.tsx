@@ -5,16 +5,15 @@ import { Square } from './styles';
 
 
 const GridSquare = (props: GridSquareProps) => {
-  const [active, setActive] = React.useState(props.active || false);
-
-  const handleToggle = () => {
-    setActive(old => !old);
-    console.log(props.index, active)
+  const handleToggle = (event: Event) => {
+    if (props.handeEvent) {
+      props.handeEvent(props.index, event);
+    }
   }
 
   return (
     <Square
-      active={active}
+      active={props.active || false}
       width={props.width}
       height={props.height}
       gap={props.gap}

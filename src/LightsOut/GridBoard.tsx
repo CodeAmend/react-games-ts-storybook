@@ -14,7 +14,11 @@ const GridBoard = (props: GridBoardProps) => {
       rows={props.rows}
     >
       {props.gridItems.map((item: GridSquareProps, index: number) => (
-        <GridSquare key={index} { ...item} />
+        <GridSquare
+          key={index}
+          {...item}
+          handeEvent={props.handeEvent}
+        />
       ))}
     </Board>
   ); 

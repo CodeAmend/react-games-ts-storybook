@@ -12,17 +12,25 @@ const Wrapper = styled.main`
 
 
 const LightsOut = () => {
-  const { cols, rows, gridItems, boardWidth, boardHeight } = useGameBoard();
+  const {
+    cols,
+    rows,
+    gridItems,
+    boardWidth,
+    boardHeight,
+    toggleAjacentOfIndex,
+  } = useGameBoard();
 
   return (
     <Wrapper>
-    <GameBoard 
-      cols={cols}
-      rows={rows}
-      width={boardWidth}
-      height={boardHeight}
-      gridItems={gridItems}
-    />
+      <GameBoard 
+        cols={cols}
+        rows={rows}
+        width={boardWidth}
+        height={boardHeight}
+        gridItems={gridItems}
+        handeEvent={toggleAjacentOfIndex}
+      />
     </Wrapper>
   )
 }
