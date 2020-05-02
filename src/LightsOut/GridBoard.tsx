@@ -5,8 +5,6 @@ import GridSquare from './GridSquare';
 import { Board } from './styles';
 
 
-
-
 const GridBoard = (props: GridBoardProps) => {
   return (
     <Board
