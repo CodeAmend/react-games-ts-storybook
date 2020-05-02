@@ -17,5 +17,7 @@ export type GridBoardProps = {
   gridItems: GridSquareProps[];
   rows: number;
   cols: number;
+  width: string;
+  height: string;
 }
 

@@ -6,7 +6,7 @@ import { GridBoardOptionProps } from './interfaces';
 export const Board = styled.article<GridBoardOptionProps>`
   width: ${p => p.width};
   height: ${p => p.height};
-  background-color: lightgray;
+  background-color: red;
 
   display: grid;
   grid-template-columns: repeat(${p => p.cols}, 1fr);
