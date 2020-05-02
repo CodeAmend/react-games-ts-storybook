@@ -1,7 +1,7 @@
 import React from 'react';
-import { GridBoardProps, GridSquareProps } from './interfaces';
+import { GridSquareProps } from './interfaces';
 
-import { useGameBoard } from './GameBoardHooks';
+import { useGameBoard } from '../store/hooks';
 import GridSquare from './GridSquare';
 import { Board } from './styles';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GameBoardContext } from './GameBoardProvider';
+import { GameBoardContext } from './GameProvider';
 
 export const useGameBoard = () => {
   const {
@@ -23,4 +23,3 @@ export const useGameBoard = () => {
     gridItems,
   }
 }
-

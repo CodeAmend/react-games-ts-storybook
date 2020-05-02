@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import GridBoard from './GridBoard';
 import { GridSquareProps } from './interfaces';
-import config from '../gameConfig';
+import config from '../store/config';
 
 
 

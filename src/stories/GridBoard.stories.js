@@ -2,7 +2,7 @@ import React from 'react';
 // import { action } from '@storybook/addon-actions';
 
 import GridBoard from '../LightsOut/GridBoard'
-import config from '../gameConfig';
+import config from '../store/config';
 
 export default {
   title: 'Grid Board and Squares',

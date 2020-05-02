@@ -1,7 +1,8 @@
 import React from 'react';
 import { createNewBoard } from './util';
-import { GridSquareProps } from './interfaces';
-import config from '../gameConfig';
+import { GridSquareProps } from '../LightsOut/interfaces';
+import config from './config';
+
 
 // TODO: this needs to be setState type. What is that?
 interface GameBoardContextType {
@@ -65,3 +66,4 @@ const GameBoardProvider: React.FC = ({ children }) => {
 }
 
 export default GameBoardProvider;
+

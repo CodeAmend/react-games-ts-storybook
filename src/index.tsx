@@ -5,17 +5,17 @@ import { BrowserRouter as Router } from "react-router-dom";
 import './index.css';
 import AppRoutes from './Routes/AppRoutes';
 import MenuLinks from './Routes/MenuLinks';
-import GameBoardProvider from './LightsOut/GameBoardProvider';
+import GameProvider from './store/GameProvider';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <GameBoardProvider>
+    <GameProvider>
       <Router>
         <MenuLinks />
         <AppRoutes />
       </Router>
-    </GameBoardProvider>
+    </GameProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
