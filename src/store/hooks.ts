@@ -16,6 +16,8 @@ export const useGameBoard = () => {
     rowSize,
     gridItems,
     setGridItems,
+    counter,
+    setCounter,
   } = React.useContext(GameBoardContext);
 
 
@@ -41,13 +43,14 @@ export const useGameBoard = () => {
     });
 
     setGridItems(filteredGridItems);
+    setCounter(counter + 1);
   }
 
   React.useEffect(() => {
     const allLightsOut = gridItems.every(item => !item.active);
     // TODO: add a nice modal or something
-    if (allLightsOut) console.log("Congratilations You Win");
-  }, [gridItems])
+    if (allLightsOut && counter) console.log("Congratilations You Win");
+  }, [gridItems, counter])
 
   return {
     boardWidth: getBoardWidth(),
@@ -56,5 +59,6 @@ export const useGameBoard = () => {
     rows,
     gridItems,
     toggleAjacentOfIndex,
+    counter,
   }
 }

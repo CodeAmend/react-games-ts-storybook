@@ -6,8 +6,15 @@ import GameBoard from './GridBoard'
 
 
 const Wrapper = styled.main`
+  position: relative;
   display: flex;
   justify-content: center;
+`;
+
+const Counter = styled.aside`
+  position: absolute;
+  right: 0;
+  top: 0;
 `;
 
 
@@ -19,10 +26,12 @@ const LightsOut = () => {
     boardWidth,
     boardHeight,
     toggleAjacentOfIndex,
+    counter,
   } = useGameBoard();
 
   return (
     <Wrapper>
+      <Counter>Count: {counter}</Counter>
       <GameBoard 
         cols={cols}
         rows={rows}

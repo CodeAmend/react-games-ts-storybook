@@ -4,7 +4,6 @@ import { GridSquareProps } from '../LightsOut/interfaces';
 import config from './config';
 
 
-// TODO: this needs to be setState type. What is that?
 interface GameBoardContextType {
   gridItems: GridSquareProps[];
   gap: number;
@@ -12,16 +11,18 @@ interface GameBoardContextType {
   colSize: number;
   cols: number;
   rows: number;
+  counter: number;
 
+  // TODO: this needs to be setState type. What is that?
   setGridItems: any;
   setGap: any;
   setRowSize: any;
   setColSize: any;
   setCols: any;
   setRows: any;
+  setCounter: any;
 }
 
-// TODO: is there another way to do this without the null logic? Its silly.
 export const GameBoardContext = React.createContext<GameBoardContextType>({
   // TODO: ALL this is here because typescript will not let me make null or {} initial value
   gridItems: [],
@@ -31,11 +32,13 @@ export const GameBoardContext = React.createContext<GameBoardContextType>({
   setRows: () => {},
   setColSize: () => {},
   setRowSize: () => {},
+  setCounter: () => {},
   rowSize: 0,
   colSize: 0,
   cols: 0,
   rows: 0,
   gap: 0,
+  counter: 0,
 });
 
 
@@ -48,6 +51,7 @@ const GameBoardProvider: React.FC = ({ children }) => {
   const [rowSize, setRowSize] = React.useState(config.rowSize);
   const [rows, setRows] = React.useState(config.rows);
   const [cols, setCols] = React.useState(config.cols);
+  const [counter, setCounter] = React.useState(0);
 
   const initialValue = {
     gridItems, setGridItems,
@@ -56,6 +60,7 @@ const GameBoardProvider: React.FC = ({ children }) => {
     colSize, setColSize,
     cols, setCols,
     rows, setRows,
+    counter, setCounter,
   }
 
   return (

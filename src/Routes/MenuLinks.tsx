@@ -8,6 +8,7 @@ const MenuLinks = () => {
   return (
     <MainScreen>
       <Header>React Games</Header>
+
       <Menu>
         <MenuItem to="/lights-out">Lights Out</MenuItem>
         <MenuItem to="/snake">Snake</MenuItem>
