@@ -1,7 +1,8 @@
 import React from 'react';
 import { createNewBoard } from './util';
-import { GridSquareProps } from './interfaces';
-import config from '../gameConfig';
+import { GridSquareProps } from '../LightsOut/interfaces';
+import config from './config';
+
 
 // TODO: this needs to be setState type. What is that?
 interface GameBoardContextType {
@@ -41,7 +42,7 @@ export const GameBoardContext = React.createContext<GameBoardContextType>({
 const initialGridItems = createNewBoard();
 
 const GameBoardProvider: React.FC = ({ children }) => {
-  const [gridItems, setGridItems] = React.useState(initialGridItems);
+  const [gridItems, setGridItems] = React.useState<GridSquareProps[]>(initialGridItems);
   const [gap, setGap] = React.useState(config.gap);
   const [colSize, setColSize] = React.useState(config.colSize);
   const [rowSize, setRowSize] = React.useState(config.rowSize);
@@ -65,3 +66,4 @@ const GameBoardProvider: React.FC = ({ children }) => {
 }
 
 export default GameBoardProvider;
+

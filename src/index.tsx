@@ -1,16 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from "react-router-dom";
 
 import './index.css';
-import AppRouter from './AppRouter';
-import GameBoardProvider from './LightsOut/GameBoardProvider';
+import AppRoutes from './Routes/AppRoutes';
+import MenuLinks from './Routes/MenuLinks';
+import GameProvider from './store/GameProvider';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <GameBoardProvider>
-      <AppRouter />
-    </GameBoardProvider>
+    <GameProvider>
+      <Router>
+        <MenuLinks />
+        <AppRoutes />
+      </Router>
+    </GameProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,5 +1,5 @@
-import config from '../gameConfig';
-import { GridSquareProps } from './interfaces';
+import config from './config';
+import { GridSquareProps } from '../LightsOut/interfaces';
 
 
 export const createNewBoard = (): GridSquareProps[] => {
@@ -21,5 +21,3 @@ export const createNewBoard = (): GridSquareProps[] => {
   }
   return nodeItems;
 }
-
-

@@ -1,26 +1,24 @@
 import React from 'react';
-import { GridBoardProps, GridSquareProps } from './interfaces';
+import { GridSquareProps, GridBoardProps } from './interfaces';
 
-import { useGameBoard } from './GameBoardHooks';
 import GridSquare from './GridSquare';
 import { Board } from './styles';
 
 
-
-
-const GridBoard = () => {
-  const { cols, rows, boardWidth, boardHeight, gridItems } = useGameBoard();
-
-  
+const GridBoard = (props: GridBoardProps) => {
   return (
     <Board
-      width={boardWidth + 'px'}
-      height={boardHeight + 'px'}
-      cols={cols}
-      rows={rows}
+      width={props.width + 'px'}
+      height={props.height + 'px'}
+      cols={props.cols}
+      rows={props.rows}
     >
-      {gridItems.map((item: GridSquareProps, index: number) => (
-        <GridSquare key={index} { ...item} />
+      {props.gridItems.map((item: GridSquareProps, index: number) => (
+        <GridSquare
+          key={index}
+          {...item}
+          handeEvent={props.handeEvent}
+        />
       ))}
     </Board>
   ); 

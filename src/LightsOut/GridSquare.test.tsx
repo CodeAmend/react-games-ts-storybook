@@ -7,6 +7,7 @@ import GridSquare from './GridSquare';
 test('GridSquare default is not active', () => {
   const wrapper = shallow(
     <GridSquare
+      index={0}
       width="50px"
       height="50px"
       gap="1px"
@@ -19,6 +20,7 @@ test('GridSquare default is not active', () => {
 test('GridSquare toggles active on click', () => {
   const wrapper = shallow(
     <GridSquare
+      index={0}
       width="50px"
       height="50px"
       gap="1px"
