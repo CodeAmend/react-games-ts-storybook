@@ -1,6 +1,5 @@
 import React from 'react';
 import { GameBoardContext } from './GameProvider';
-import { GridSquareProps } from '../LightsOut/interfaces';
 
 
 const getSingleBoardDimension =
@@ -41,10 +40,14 @@ export const useGameBoard = () => {
       return item;
     });
 
-    console.log(index, filteredGridItems)
-
     setGridItems(filteredGridItems);
   }
+
+  React.useEffect(() => {
+    const allLightsOut = gridItems.every(item => !item.active);
+    // TODO: add a nice modal or something
+    if (allLightsOut) console.log("Congratilations You Win");
+  }, [gridItems])
 
   return {
     boardWidth: getBoardWidth(),
