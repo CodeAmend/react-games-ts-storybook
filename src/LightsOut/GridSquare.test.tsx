@@ -17,21 +17,19 @@ test('GridSquare default is not active', () => {
   expect(wrapper.prop('active')).toBe(false)
 });
 
-test('GridSquare toggles active on click', () => {
+test('GridSquare on click fires handleEvent with index', () => {
+  let testIndex = null;
+
   const wrapper = shallow(
     <GridSquare
       index={0}
       width="50px"
       height="50px"
       gap="1px"
+      handeEvent={index => testIndex = index}
     />
   );
+  wrapper.simulate('click')
 
-  expect(wrapper.prop('active')).toBe(false)
-  wrapper.simulate('click')
-  expect(wrapper.prop('active')).toBe(true)
-  wrapper.simulate('click')
-  expect(wrapper.prop('active')).toBe(false)
+  expect(testIndex).toBe(0)
 });
-
-// TODO: should I test css as well?
