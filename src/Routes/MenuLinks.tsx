@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { MainScreen, Header, Menu } from './styles';
-import MenuItem from '../MainMenu/MenuButton';
+import MenuItem from './MenuButton';
 
 
-function App() {
+const MenuLinks = () => {
   return (
     <MainScreen>
       <Header>React Games</Header>
@@ -14,7 +14,9 @@ function App() {
         <MenuItem to="/random-walker">Random Walker</MenuItem>
       </Menu>
     </MainScreen>
+
   );
 }
 
-export default App;
+export default MenuLinks;
+
